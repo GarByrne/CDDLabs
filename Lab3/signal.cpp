@@ -2,23 +2,26 @@
 #include <iostream>
 #include <thread>
 
+int num = 0;
+
 void taskOne(std::shared_ptr<Semaphore> theSemaphore){
   theSemaphore->Wait();
-  std::cout <<"I ";
-  std::cout << "must "<<std::endl;
-  std::cout << "print ";
-  std::cout << "first"<<std::endl;
+  std::cout << "Count " << num <<std::endl;
+  num++;
   theSemaphore->Signal();
 }
 
 int main(void){
-  std::thread threadOne, threadTwo;
+
+  std::thread threadOne, threadTwo, threadThree;
   std::shared_ptr<Semaphore> sem( new Semaphore(1));
   /**< Launch the threads  */
   threadOne=std::thread(taskOne,sem);
   threadTwo=std::thread(taskOne,sem);
+  threadThree=std::thread(taskOne,sem);
   std::cout << "Launched from the main\n";
   threadOne.join();
   threadTwo.join();
+  threadThree.join();
   return 0;
 }
