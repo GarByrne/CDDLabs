@@ -19,7 +19,6 @@ int main(void){
   threadOne=std::thread(taskOne,sem);
   threadTwo=std::thread(taskOne,sem);
   threadThree=std::thread(taskOne,sem);
-  std::cout << "Launched from the main\n";
   threadOne.join();
   threadTwo.join();
   threadThree.join();
