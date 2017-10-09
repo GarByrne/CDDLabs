@@ -9,6 +9,7 @@ void taskOne(std::shared_ptr<Semaphore> theSemaphore){
   std::cout << "first"<<std::endl;
   theSemaphore->Signal();
 }
+
 void taskTwo(std::shared_ptr<Semaphore> theSemaphore){
   theSemaphore->Wait();
   std::cout <<"This ";
