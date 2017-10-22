@@ -7,7 +7,7 @@
 #include <thread>
 
 using namespace std;
-int count = 0, threadCount = 0, barrierLimit = 3,i = 0,testAmount = 10;
+int count = 0, threadCount = 0, barrierLimit = 3,i = 0,testAmount = 3;
 
 void taskOne(shared_ptr<Semaphore> Mutex,shared_ptr<Semaphore> BarrierA,shared_ptr<Semaphore> BarrierB)
   {
@@ -17,9 +17,9 @@ void taskOne(shared_ptr<Semaphore> Mutex,shared_ptr<Semaphore> BarrierA,shared_p
     count++;
     if(count == barrierLimit)
       {
+        threadCount = 0;
         BarrierB->Wait();
         BarrierA->Signal();
-        threadCount = 0;
       }
     Mutex->Signal();
     BarrierA->Wait();
