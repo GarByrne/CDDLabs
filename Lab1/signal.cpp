@@ -1,6 +1,16 @@
+//Author: Garry Byrne
+//Program name: signal
+//Purpose: create an example of a signaling with semaphores
 #include "Semaphore.h"
 #include <iostream>
 #include <thread>
+/*! \class Signal
+    \Brief an Implementation of Threads Using Semaphores 
+
+Uses C++11 features such as mutex and condition variables to implement 	   Semaphores in thread functions 
+
+*/
+/*! displays a message first*/
 
 void taskOne(std::shared_ptr<Semaphore> theSemaphore){
   std::cout <<"I ";

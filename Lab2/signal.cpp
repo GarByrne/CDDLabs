@@ -1,6 +1,15 @@
+//Author: Garry Byrne
+//Program name: signal
+//Purpose: create an example of a rendezvous
 #include "Semaphore.h"
 #include <iostream>
 #include <thread>
+
+/*! \class Signal
+    \brief An Implementation of a Rendezvous using Semaphores
+   Uses C++11 features such as mutex and condition variables to implement an example of a rendezvous for threads
+*/
+/*! displays a message that is split in to 2 sections to show how a rendezvous works*/
 
 void taskOne(std::shared_ptr<Semaphore> theSemaphore,  std::shared_ptr<Semaphore> sem2){
   std::cout <<"I ";
@@ -11,6 +20,7 @@ void taskOne(std::shared_ptr<Semaphore> theSemaphore,  std::shared_ptr<Semaphore
   std::cout << "first"<<std::endl;
   theSemaphore->Signal();
 }
+/*! displays a message that is split in to 2 sections to show how a rendezvous works*/
 void taskTwo(std::shared_ptr<Semaphore> theSemaphore, std::shared_ptr<Semaphore> sem2){
   theSemaphore->Wait();
   std::cout <<"This ";
