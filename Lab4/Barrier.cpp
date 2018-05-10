@@ -2,63 +2,85 @@
 // Created: 18th October 2017
 // Purpose: A reusable barrier class.
 
-#include "Semaphore.h"
-#include <iostream>
-#include <thread>
+#include "Barrier.h"
 
-using namespace std;
-int count = 0, threadCount = 0, barrierLimit = 3,i = 0,testAmount = 3;
+/*! \class Barrier
+    \brief An Implementation of a barrier Using Semaphores 
+   Uses C++11 features such as mutex and condition variables to implement a barrier using Semaphores with N number threads
+*/
+/*! constructor*/
+Barrier::Barrier(){
 
-void taskOne(shared_ptr<Semaphore> Mutex,shared_ptr<Semaphore> BarrierA,shared_ptr<Semaphore> BarrierB)
-  {
-    threadCount++;
-    cout << "Thread " << threadCount << " before Barrier" << endl;
-    Mutex->Wait();
-    count++;
-    if(count == barrierLimit)
-      {
-        threadCount = 0;
-        BarrierB->Wait();
-        BarrierA->Signal();
-      }
-    Mutex->Signal();
-    BarrierA->Wait();
-    BarrierA->Signal();
-    threadCount++;
+  count = 0;
+  threadNum = 0;
+  turnstile = 0;
+  mutex=std::make_shared<Semaphore>(1);
+  barrier1=std::make_shared<Semaphore>(0);
+  barrier2=std::make_shared<Semaphore>(1);
 
-    cout << "Thread " << threadCount << " after Barrier" << endl;
+}
+/*! Barrier with parameter constructor*/
+Barrier::Barrier(int count){
 
-    Mutex->Wait();
-    count --;
-    if(count == 0)
-      {
-        BarrierA->Wait();
-        BarrierB->Signal();
-      }
-    Mutex->Signal();
-    BarrierB->Wait();
-    BarrierB->Signal();
+  this->count = count;
+  turnstile = 0;
+  threadNum = 0;
+  mutex=std::make_shared<Semaphore>(1);
+  barrier1=std::make_shared<Semaphore>(0);
+  barrier2=std::make_shared<Semaphore>(1);
+}
+/*! Barrier deconstructor*/
+Barrier::~Barrier(){
+
+}
+
+/*! sets count value*/
+void Barrier::setCount(int x){
+
+  this->count = x;
+}
+/*! returns count value*/
+int Barrier::getCount(){
+
+  return this->count;
+}
+
+
+void Barrier::waitForAll(){
+
+  if(turnstile == 0){
+   one();
+  }
+  else{
+   two();
   }
 
-int main(void)
-  {
-    thread threadOne, threadTwo, threadThree;
-    shared_ptr<Semaphore> Mutex(new Semaphore(1));
-    shared_ptr<Semaphore> BarrierA(new Semaphore);
-    shared_ptr<Semaphore> BarrierB(new Semaphore(1));
+}
+/*! 1st turnstile*/
+void Barrier::one(){
 
-    while(i <= testAmount)
-      {
-        threadCount = 0;
-        threadOne=thread(taskOne,Mutex,BarrierA,BarrierB);
-        threadTwo=thread(taskOne,Mutex,BarrierA,BarrierB);
-        threadThree=thread(taskOne,Mutex,BarrierA,BarrierB);
-        i++;
+  mutex->Wait();
+  threadNum++;
+  if(threadNum == count){
+    barrier2->Wait();
+    barrier1->Signal();
+    turnstile = 1;
+  }
+  mutex->Signal();
+  barrier1->Wait();
+  barrier1->Signal();
+}
+/*! 2nd turnstile */
+void Barrier::two(){
 
-        threadOne.join();
-        threadTwo.join();
-        threadThree.join();
-        cout << endl << endl;
-      }
-    return 0;
+  mutex->Wait();
+  threadNum--;
+  if(threadNum == 0){
+    barrier1->Wait();
+    barrier2->Signal();
+    turnstile = 0;
+  }
+  mutex->Signal();
+  barrier2->Wait();
+  barrier2->Signal();
 }

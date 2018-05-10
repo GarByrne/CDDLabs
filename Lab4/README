@@ -1,0 +1,2 @@
+This an example of a reusable barrier class for multi-threaded programming. 
+This program can be excuted using the makefile provided in the folder. This uses the g++ compiler and has features that allow you to delete all of the object files or use the GDB debugger. 

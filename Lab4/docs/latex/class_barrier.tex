@@ -1,0 +1,89 @@
+\hypertarget{class_barrier}{}\section{Barrier Class Reference}
+\label{class_barrier}\index{Barrier@{Barrier}}
+
+
+An Implementation of a barrier Using Semaphores Uses C++11 features such as mutex and condition variables to implement a barrier using Semaphores with N number threads.  
+
+
+
+
+{\ttfamily \#include $<$Barrier.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_barrier_a462a2435e07b6fabc0265011f03310ee}{Barrier} ()
+\item 
+\hyperlink{class_barrier_a401f40e73302009b305904ffc7825304}{$\sim$\+Barrier} ()
+\item 
+\hyperlink{class_barrier_a68730c862911d37696957056595aa604}{Barrier} (int count)
+\item 
+void \hyperlink{class_barrier_ab999e172844330d8b9a1c13f3766959d}{set\+Count} (int count)
+\item 
+int \hyperlink{class_barrier_a471bfe5ce54384baa7dbd195ae3a7b30}{get\+Count} ()
+\item 
+void \hyperlink{class_barrier_a59b259f25f6acdc5f943398035d2d87a}{wait\+For\+All} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+An Implementation of a barrier Using Semaphores Uses C++11 features such as mutex and condition variables to implement a barrier using Semaphores with N number threads. 
+
+A \hyperlink{class_barrier}{Barrier} Implementation Uses C++11 features such as mutex and condition variables to implement a \hyperlink{class_barrier}{Barrier} class using Semaphores. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Barrier@{Barrier}!Barrier@{Barrier}}
+\index{Barrier@{Barrier}!Barrier@{Barrier}}
+\subsubsection[{\texorpdfstring{Barrier()}{Barrier()}}]{\setlength{\rightskip}{0pt plus 5cm}Barrier\+::\+Barrier (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_barrier_a462a2435e07b6fabc0265011f03310ee}{}\label{class_barrier_a462a2435e07b6fabc0265011f03310ee}
+constructor \index{Barrier@{Barrier}!````~Barrier@{$\sim$\+Barrier}}
+\index{````~Barrier@{$\sim$\+Barrier}!Barrier@{Barrier}}
+\subsubsection[{\texorpdfstring{$\sim$\+Barrier()}{~Barrier()}}]{\setlength{\rightskip}{0pt plus 5cm}Barrier\+::$\sim$\+Barrier (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_barrier_a401f40e73302009b305904ffc7825304}{}\label{class_barrier_a401f40e73302009b305904ffc7825304}
+\hyperlink{class_barrier}{Barrier} deconstructor \index{Barrier@{Barrier}!Barrier@{Barrier}}
+\index{Barrier@{Barrier}!Barrier@{Barrier}}
+\subsubsection[{\texorpdfstring{Barrier(int count)}{Barrier(int count)}}]{\setlength{\rightskip}{0pt plus 5cm}Barrier\+::\+Barrier (
+\begin{DoxyParamCaption}
+\item[{int}]{count}
+\end{DoxyParamCaption}
+)}\hypertarget{class_barrier_a68730c862911d37696957056595aa604}{}\label{class_barrier_a68730c862911d37696957056595aa604}
+\hyperlink{class_barrier}{Barrier} with parameter constructor 
+
+\subsection{Member Function Documentation}
+\index{Barrier@{Barrier}!get\+Count@{get\+Count}}
+\index{get\+Count@{get\+Count}!Barrier@{Barrier}}
+\subsubsection[{\texorpdfstring{get\+Count()}{getCount()}}]{\setlength{\rightskip}{0pt plus 5cm}int Barrier\+::get\+Count (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_barrier_a471bfe5ce54384baa7dbd195ae3a7b30}{}\label{class_barrier_a471bfe5ce54384baa7dbd195ae3a7b30}
+gets the count for the barrier
+
+returns count value \index{Barrier@{Barrier}!set\+Count@{set\+Count}}
+\index{set\+Count@{set\+Count}!Barrier@{Barrier}}
+\subsubsection[{\texorpdfstring{set\+Count(int count)}{setCount(int count)}}]{\setlength{\rightskip}{0pt plus 5cm}void Barrier\+::set\+Count (
+\begin{DoxyParamCaption}
+\item[{int}]{x}
+\end{DoxyParamCaption}
+)}\hypertarget{class_barrier_ab999e172844330d8b9a1c13f3766959d}{}\label{class_barrier_ab999e172844330d8b9a1c13f3766959d}
+sets the count for the barrier
+
+sets count value \index{Barrier@{Barrier}!wait\+For\+All@{wait\+For\+All}}
+\index{wait\+For\+All@{wait\+For\+All}!Barrier@{Barrier}}
+\subsubsection[{\texorpdfstring{wait\+For\+All()}{waitForAll()}}]{\setlength{\rightskip}{0pt plus 5cm}void Barrier\+::wait\+For\+All (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_barrier_a59b259f25f6acdc5f943398035d2d87a}{}\label{class_barrier_a59b259f25f6acdc5f943398035d2d87a}
+waits for all the threads and checks which turnstile is active 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Lab4/\hyperlink{_barrier_8h}{Barrier.\+h}\item 
+Lab4/\hyperlink{_barrier_8cpp}{Barrier.\+cpp}\end{DoxyCompactItemize}
