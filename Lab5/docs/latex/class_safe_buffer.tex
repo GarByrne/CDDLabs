@@ -1,0 +1,84 @@
+\hypertarget{class_safe_buffer}{}\section{Safe\+Buffer Class Reference}
+\label{class_safe_buffer}\index{Safe\+Buffer@{Safe\+Buffer}}
+
+
+An Implementation of a safe buffer class.  
+
+
+
+
+{\ttfamily \#include $<$Safe\+Buffer.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_safe_buffer_af835d8d08c4dcd3326f21ae2e9988699}{Safe\+Buffer} ()
+\item 
+void \hyperlink{class_safe_buffer_a11cc1330c953304b540355fad3ba0b0e}{Add} (char)
+\item 
+char \hyperlink{class_safe_buffer_a7a8dc1f39f036cad435bb388d2693c66}{Remove} ()
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::shared\+\_\+ptr$<$ \hyperlink{class_semaphore}{Semaphore} $>$ \hyperlink{class_safe_buffer_a7f90950b182359904348ff978ebb96c6}{mutex}
+\item 
+std\+::shared\+\_\+ptr$<$ \hyperlink{class_semaphore}{Semaphore} $>$ \hyperlink{class_safe_buffer_aab374b9839a583473e1ec8938715a8e7}{items}
+\item 
+std\+::shared\+\_\+ptr$<$ \hyperlink{class_semaphore}{Semaphore} $>$ \hyperlink{class_safe_buffer_aa8de2bc2e0f6672f448ef0095faacf8c}{spaces}
+\item 
+std\+::queue$<$ char $>$ \hyperlink{class_safe_buffer_a8db738cc1b4be3eeba47f322008a2c3e}{safe\+Buffer}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+An Implementation of a safe buffer class. 
+
+Class used to provide safe access to a shared buffer. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Safe\+Buffer@{Safe\+Buffer}!Safe\+Buffer@{Safe\+Buffer}}
+\index{Safe\+Buffer@{Safe\+Buffer}!Safe\+Buffer@{Safe\+Buffer}}
+\subsubsection[{\texorpdfstring{Safe\+Buffer()}{SafeBuffer()}}]{\setlength{\rightskip}{0pt plus 5cm}Safe\+Buffer\+::\+Safe\+Buffer (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_safe_buffer_af835d8d08c4dcd3326f21ae2e9988699}{}\label{class_safe_buffer_af835d8d08c4dcd3326f21ae2e9988699}
+Constructor, spaces provides a finite buffer size 
+
+\subsection{Member Function Documentation}
+\index{Safe\+Buffer@{Safe\+Buffer}!Add@{Add}}
+\index{Add@{Add}!Safe\+Buffer@{Safe\+Buffer}}
+\subsubsection[{\texorpdfstring{Add(char)}{Add(char)}}]{\setlength{\rightskip}{0pt plus 5cm}void Safe\+Buffer\+::\+Add (
+\begin{DoxyParamCaption}
+\item[{char}]{c}
+\end{DoxyParamCaption}
+)}\hypertarget{class_safe_buffer_a11cc1330c953304b540355fad3ba0b0e}{}\label{class_safe_buffer_a11cc1330c953304b540355fad3ba0b0e}
+Add first checks for available space in the buffer, it then puts a mutex on the queue(safe\+Buffer) and adds the character. It then releases the mutex and signals items, to indicate that the consumer can take something. \index{Safe\+Buffer@{Safe\+Buffer}!Remove@{Remove}}
+\index{Remove@{Remove}!Safe\+Buffer@{Safe\+Buffer}}
+\subsubsection[{\texorpdfstring{Remove()}{Remove()}}]{\setlength{\rightskip}{0pt plus 5cm}char Safe\+Buffer\+::\+Remove (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_safe_buffer_a7a8dc1f39f036cad435bb388d2693c66}{}\label{class_safe_buffer_a7a8dc1f39f036cad435bb388d2693c66}
+Remove first checks if there are items to be consumed, it then claims the mutex and removes an item. Finally it releases the mutex and adds a space to the buffer. 
+
+\subsection{Member Data Documentation}
+\index{Safe\+Buffer@{Safe\+Buffer}!items@{items}}
+\index{items@{items}!Safe\+Buffer@{Safe\+Buffer}}
+\subsubsection[{\texorpdfstring{items}{items}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::shared\+\_\+ptr$<${\bf Semaphore}$>$ Safe\+Buffer\+::items}\hypertarget{class_safe_buffer_aab374b9839a583473e1ec8938715a8e7}{}\label{class_safe_buffer_aab374b9839a583473e1ec8938715a8e7}
+\index{Safe\+Buffer@{Safe\+Buffer}!mutex@{mutex}}
+\index{mutex@{mutex}!Safe\+Buffer@{Safe\+Buffer}}
+\subsubsection[{\texorpdfstring{mutex}{mutex}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::shared\+\_\+ptr$<${\bf Semaphore}$>$ Safe\+Buffer\+::mutex}\hypertarget{class_safe_buffer_a7f90950b182359904348ff978ebb96c6}{}\label{class_safe_buffer_a7f90950b182359904348ff978ebb96c6}
+\index{Safe\+Buffer@{Safe\+Buffer}!safe\+Buffer@{safe\+Buffer}}
+\index{safe\+Buffer@{safe\+Buffer}!Safe\+Buffer@{Safe\+Buffer}}
+\subsubsection[{\texorpdfstring{safe\+Buffer}{safeBuffer}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::queue$<$char$>$ Safe\+Buffer\+::safe\+Buffer}\hypertarget{class_safe_buffer_a8db738cc1b4be3eeba47f322008a2c3e}{}\label{class_safe_buffer_a8db738cc1b4be3eeba47f322008a2c3e}
+\index{Safe\+Buffer@{Safe\+Buffer}!spaces@{spaces}}
+\index{spaces@{spaces}!Safe\+Buffer@{Safe\+Buffer}}
+\subsubsection[{\texorpdfstring{spaces}{spaces}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::shared\+\_\+ptr$<${\bf Semaphore}$>$ Safe\+Buffer\+::spaces}\hypertarget{class_safe_buffer_aa8de2bc2e0f6672f448ef0095faacf8c}{}\label{class_safe_buffer_aa8de2bc2e0f6672f448ef0095faacf8c}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_safe_buffer_8h}{Safe\+Buffer.\+h}\item 
+\hyperlink{_safe_buffer_8cpp}{Safe\+Buffer.\+cpp}\end{DoxyCompactItemize}

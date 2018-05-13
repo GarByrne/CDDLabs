@@ -1,0 +1,63 @@
+\hypertarget{main_8cpp}{}\section{main.\+cpp File Reference}
+\label{main_8cpp}\index{main.\+cpp@{main.\+cpp}}
+{\ttfamily \#include \char`\"{}Safe\+Buffer.\+h\char`\"{}}\\*
+{\ttfamily \#include $<$iostream$>$}\\*
+{\ttfamily \#include $<$chrono$>$}\\*
+{\ttfamily \#include $<$thread$>$}\\*
+Include dependency graph for main.\+cpp\+:
+% FIG 0
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{main_8cpp_a1d8684e480819dca3518b4b6f35cce29}{Consumer\+Method} (std\+::shared\+\_\+ptr$<$ \hyperlink{class_safe_buffer}{Safe\+Buffer} $>$ s\+Buff)
+\item 
+void \hyperlink{main_8cpp_ab754589000ec936fdbcc466ac71366bb}{Producer\+Method} (std\+::shared\+\_\+ptr$<$ \hyperlink{class_safe_buffer}{Safe\+Buffer} $>$ s\+Buff, int num\+Characters)
+\item 
+void \hyperlink{main_8cpp_a592b091d8e3b080475a6b7e2629b100f}{Print\+Array} ()
+\item 
+int \hyperlink{main_8cpp_a840291bc02cba5474a4cb46a9b9566fe}{main} (void)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{main_8cpp_a02748b4e1c2d836d0b0e37a5345d260b}{character\+Count\+Buffer} \mbox{[}26\mbox{]} = \{0\}
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\index{main.\+cpp@{main.\+cpp}!Consumer\+Method@{Consumer\+Method}}
+\index{Consumer\+Method@{Consumer\+Method}!main.\+cpp@{main.\+cpp}}
+\subsubsection[{\texorpdfstring{Consumer\+Method(std\+::shared\+\_\+ptr$<$ Safe\+Buffer $>$ s\+Buff)}{ConsumerMethod(std::shared_ptr< SafeBuffer > sBuff)}}]{\setlength{\rightskip}{0pt plus 5cm}void Consumer\+Method (
+\begin{DoxyParamCaption}
+\item[{std\+::shared\+\_\+ptr$<$ {\bf Safe\+Buffer} $>$}]{s\+Buff}
+\end{DoxyParamCaption}
+)}\hypertarget{main_8cpp_a1d8684e480819dca3518b4b6f35cce29}{}\label{main_8cpp_a1d8684e480819dca3518b4b6f35cce29}
+Consumer\+Method removes a character from the safe buffer, at random time intervals. It also keeps track of the count of each letter removed. \index{main.\+cpp@{main.\+cpp}!main@{main}}
+\index{main@{main}!main.\+cpp@{main.\+cpp}}
+\subsubsection[{\texorpdfstring{main(void)}{main(void)}}]{\setlength{\rightskip}{0pt plus 5cm}int main (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{main_8cpp_a840291bc02cba5474a4cb46a9b9566fe}{}\label{main_8cpp_a840291bc02cba5474a4cb46a9b9566fe}
+\index{main.\+cpp@{main.\+cpp}!Print\+Array@{Print\+Array}}
+\index{Print\+Array@{Print\+Array}!main.\+cpp@{main.\+cpp}}
+\subsubsection[{\texorpdfstring{Print\+Array()}{PrintArray()}}]{\setlength{\rightskip}{0pt plus 5cm}void Print\+Array (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{main_8cpp_a592b091d8e3b080475a6b7e2629b100f}{}\label{main_8cpp_a592b091d8e3b080475a6b7e2629b100f}
+\index{main.\+cpp@{main.\+cpp}!Producer\+Method@{Producer\+Method}}
+\index{Producer\+Method@{Producer\+Method}!main.\+cpp@{main.\+cpp}}
+\subsubsection[{\texorpdfstring{Producer\+Method(std\+::shared\+\_\+ptr$<$ Safe\+Buffer $>$ s\+Buff, int num\+Characters)}{ProducerMethod(std::shared_ptr< SafeBuffer > sBuff, int numCharacters)}}]{\setlength{\rightskip}{0pt plus 5cm}void Producer\+Method (
+\begin{DoxyParamCaption}
+\item[{std\+::shared\+\_\+ptr$<$ {\bf Safe\+Buffer} $>$}]{s\+Buff, }
+\item[{int}]{num\+Characters}
+\end{DoxyParamCaption}
+)}\hypertarget{main_8cpp_ab754589000ec936fdbcc466ac71366bb}{}\label{main_8cpp_ab754589000ec936fdbcc466ac71366bb}
+Producer\+Method adds a random character to a safe buffer, at random timer intervals. 
+
+\subsection{Variable Documentation}
+\index{main.\+cpp@{main.\+cpp}!character\+Count\+Buffer@{character\+Count\+Buffer}}
+\index{character\+Count\+Buffer@{character\+Count\+Buffer}!main.\+cpp@{main.\+cpp}}
+\subsubsection[{\texorpdfstring{character\+Count\+Buffer}{characterCountBuffer}}]{\setlength{\rightskip}{0pt plus 5cm}int character\+Count\+Buffer\mbox{[}26\mbox{]} = \{0\}}\hypertarget{main_8cpp_a02748b4e1c2d836d0b0e37a5345d260b}{}\label{main_8cpp_a02748b4e1c2d836d0b0e37a5345d260b}
+Central Buffer for storing count of characters. 
